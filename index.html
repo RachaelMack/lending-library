@@ -12,36 +12,25 @@
 	</head>
 	<body>
 		<header class="container">
-			<h1>Tool Lending</h1>
+			<h1>Equipment Inventory</h1>
 			<ul class="nav">
 				<li><strong>EQUIPMENT INVENTORY</strong></li>
 				<li>BRILLIANT LABS - CAPE BRETON</li>
 			</ul>
 		</header>
 		<div id="filters" class="container">
-			<input id="toolSearch" type="search" placeholder="Orion 3D Printer.."></input>
+			<input id="toolSearch" type="search" placeholder="3D Printer.."></input>
 			<span class="clear sml-button">Clear</span>
 			<span id="showAvailable" class="sml-button">Show Available</span>
 		</div>
 		<div id="tools" class="container"><span class="flash animated">LOADING...</span></div>
-		<div id="info" class="container">
-				<div class="span1">
-					<h4>CONTRIBUTE TO THIS LIBRARY</h4>
-					<p>If you've been invited by the person who initiated this near you, you'll have access and the ability to edit the rows of the spreadsheet feeding data to this site.</p>
-					<p>Simply add the rows for the equipment you have and add yes if an item is currently being borrowed. Easy, the Spreadsheet auto-saves, too!</p>
-
-					<p>More details for using this project <a href="http://www.github.com/jlord/lending-library" target="_blank">here</a>.
-
-				</div>
-
-		</div>
 
 		<script id="tools" type="text/html">
 		{{#rows}}
 		<div id="{{rowNumber}}" class="tool-box {{#checkedout}}not-{{/checkedout}}available">
 			<span class="tool-box-tool">{{tool}}</span>
 			<div class="tool-box-bottom {{rowNumber}}">
-				{{#checkedout}} <span class="tool-box-borrowed">ON LOAN</span>{{/checkedout}}
+				{{#checkedout}} <span class="tool-box-borrowed">ON LOAN until {{return}}</span>{{/checkedout}}
 				{{^checkedout}}<a href="mailto:{{owneremail}}?subject=Tool Lending: {{tool}}"><span class="tool-box-borrow btn">BORROW</span></a>{{/checkedout}}
 				<ul>
 					<li><small>WHO / WHERE : </small></li>
